@@ -1,7 +1,8 @@
-/* Main SCSS File */
+/**
+ * Main scss file
+ */
 
-// Base
-@import "variables";
-
-// Components
-@import "scaffolding";
+@import "base/*.scss";
+@import "components/*.scss";
+@import "helpers/*.scss";
+@import "layout/*.scss";
