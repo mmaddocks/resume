@@ -2,11 +2,9 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var sassGlob = require('gulp-sass-glob');
-var htmlmin = require('gulp-htmlmin');
 
 // Gulp task for sass
 gulp.task('sass', function () {
@@ -24,13 +22,15 @@ gulp.task('sass', function () {
 	.pipe(gulp.dest('./dist/css/'))
 });
 
-// Gulp task to minify HTML files
-gulp.task('html', function() {
-  return gulp.src(['./src/**/*.html'])
-    .pipe(htmlmin({
-      collapseWhitespace: true,
-      removeComments: true
-    }))
+// Gulp task to move images to /dist
+gulp.task('images', function() {
+  return gulp.src(['./src/images/**'])
+    .pipe(gulp.dest('./dist/images'));
+});
+
+// Gulp task to move images to /dist
+gulp.task('js', function() {
+  return gulp.src(['./src/main.js'])
     .pipe(gulp.dest('./dist'));
 });
 
