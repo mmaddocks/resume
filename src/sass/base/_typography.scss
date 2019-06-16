@@ -1,0 +1,17 @@
+/**
+ * Typography
+ */
+$font: "Roboto", sans-serif;
+$font-weight: 100;
+$card-heading-size: 2em;
+
+body {
+  font-family: $font;
+  font-weight: $font-weight;
+  color: $font-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $font-weight;
+}

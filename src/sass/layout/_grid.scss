@@ -1,5 +1,56 @@
-body {
+/**
+ * Base layout
+ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.resume {
   width: 100%;
-  height: 100vh;
-  background-color: indigo;
+
+  .resume__hero {
+    width: 100%;
+    height: 100vh;
+  }
+
+}
+
+/**
+ * Grid layout
+ */
+.grid {
+  @include clearfix;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .grid__item {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+@media (min-width:992px) {
+
+  .grid {
+    max-width: 1100px;
+
+    .grid__item {
+      width: 50%;
+
+      &:nth-of-type(odd) {
+        float: left;
+      }
+
+      &:nth-of-type(even) {
+        float: right;
+      }
+
+    }
+
+  }
+
+
 }

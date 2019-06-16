@@ -31,7 +31,10 @@ Vue.component('card-about', {
   },
   template: `
     <div v-bind:class="['card', 'card-' + item.title ]">
-      <header>{{ item.id }}: {{ item.title }}</header>
+      <header class="card__header">
+        <i>{{ item.icon }}</i>
+        <h2>{{ item.title }}</h2>
+      </header>
       <div class="card__content">
         <div class="text" v-html="item.content"></div>
         <a href="mailto:hello@mmaddocks.com" role="button">Email me</a
@@ -79,7 +82,10 @@ Vue.component('card-experience', {
   },
   template: `
     <div v-bind:class="['card', 'card-' + item.title ]">
-      <header>{{ item.id }}: {{ item.title }}</header>
+      <header class="card__header">
+        <i class="fas fa-briefcase">{{ item.icon }}</i>
+        <h2>{{ item.title }}</h2>
+      </header>
       <div class="card__content">
         <div v-for="job in item.jobs" class="job">
           <header>{{ job.company }}, {{ job.role }}</header>
@@ -95,10 +101,23 @@ Vue.component('card-experience', {
  */
 var app = new Vue({
   el: '#app',
+  data: {
+    components: [
+      'card-about',
+      'card-experience'
+    ],
+  },
   template: `
     <div class="resume">
-      <card-about></card-about>
-      <card-experience></card-experience>
+      <section class="resume__hero"></section>
+      <div class="grid">
+        <div v-for="component in components" class="grid__item">
+          <component
+            v-bind:is="component"
+            v-bind:key="component.id">
+          </component>
+        </div>
+      </div>
     </div>
   `
 });

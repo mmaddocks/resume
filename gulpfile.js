@@ -2,8 +2,9 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
+var sourcemaps = require('gulp-sourcemaps');
 var sassGlob = require('gulp-sass-glob');
 
 // Gulp task for sass
@@ -16,7 +17,7 @@ gulp.task('sass', function () {
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-		.pipe(cssnano())
+		.pipe(cleanCSS())
 		.pipe(sourcemaps.write('./'))
 
 	.pipe(gulp.dest('./dist/css/'))
@@ -28,7 +29,7 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./dist/images'));
 });
 
-// Gulp task to move images to /dist
+// Gulp task to move js to /dist
 gulp.task('js', function() {
   return gulp.src(['./src/main.js'])
     .pipe(gulp.dest('./dist'));
