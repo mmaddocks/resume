@@ -1,0 +1,27 @@
+/**
+ * Card interests
+ */
+.card--interests {
+
+  .card__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .interest {
+    flex-grow: 1;
+    text-align: center;
+
+    .interest__icon {
+      font-style: normal;
+      font-size: 5em;
+    }
+
+    .interest__title {
+      display: none;
+    }
+
+  }
+
+}

@@ -3,15 +3,15 @@
  */
 .card {
   background-color: #fff;
-  outline: 1px solid $light-grey;
-  box-shadow: 0 5px 6px rgba(0,0,0,0.20);
-  border-radius: 2px;
+  border: 1px solid $light-grey;
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.20);
+  border-radius: 5px;
 
   .card__header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     border-bottom: 1px solid $light-grey;
     text-transform: capitalize;
 
@@ -19,18 +19,16 @@
       font-size: $card-heading-size;
     }
 
-    i {
+    .card__icon {
+      width: 32px;
       margin-right: 20px;
-      color: $mid-grey;
+      color: $light-grey;
     }
 
   }
 
   .card__content {
     padding: 25px;
-
-    a {
-      color: $blue;
-    }
   }
+
 }

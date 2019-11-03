@@ -13,10 +13,7 @@ gulp.task('sass', function () {
 		.pipe(sourcemaps.init())
 		.pipe(sassGlob())
 		.pipe(sass().on('error', sass.logError))
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
-			cascade: false
-		}))
+		.pipe(autoprefixer({ cascade: false }))
 		.pipe(cleanCSS())
 		.pipe(sourcemaps.write('./'))
 

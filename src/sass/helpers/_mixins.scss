@@ -8,3 +8,10 @@
     clear: both;
   }
 }
+
+/**
+ * Transitions
+ */
+@mixin transition($property, $duration: 500ms, $timing-function: ease ) {
+  transition: $property $duration $timing-function;
+}
