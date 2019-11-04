@@ -1,37 +1,46 @@
 {
   "name": "resume",
-  "version": "1.0.0",
-  "description": "2019 version of resume",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mmaddocks/resume.git"
+  "dependencies": {
+    "core-js": "^3.3.2",
+    "vue": "^2.6.10"
   },
-  "keywords": [
-    "web",
-    "developer",
-    "resume"
-  ],
-  "author": "Mark Maddocks",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/mmaddocks/resume/issues"
-  },
-  "homepage": "https://github.com/mmaddocks/resume#readme",
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sass-glob": "^1.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
   },
   "browserslist": [
-    "last 2 version",
-    "> 2%"
-  ],
-  "dependencies": {}
+    "> 1%",
+    "last 2 versions"
+  ]
 }
