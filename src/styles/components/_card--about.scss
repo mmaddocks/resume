@@ -1,0 +1,57 @@
+/**
+ * Card about
+ */
+.card--about {
+  text-align: center;
+
+  .text {
+    text-align: left;
+  }
+
+  .card__btn {
+    width: 150px;
+    display: inline-block;
+    margin: 40px 0;
+    font-weight: 300;
+    text-decoration: none;
+  }
+
+  .card__footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    border-top: 1px solid $light-grey;
+  }
+
+  .social__icon {
+    margin: 0 4px;
+    font-size: 1.5em;
+
+    i {
+      @include transition( color );
+      color: $light-grey;
+    }
+
+    &:hover {
+
+      i {
+        @include transition( color );
+
+        &.fa-linkedin-in {
+          color: $linkedin;
+        }
+        &.fa-twitter {
+          color: $twitter;
+        }
+        &.fa-github {
+          color: $github;
+        }
+
+      }
+
+    }
+
+  }
+
+}

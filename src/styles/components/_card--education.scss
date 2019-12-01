@@ -1,0 +1,49 @@
+/**
+ * Card education
+ */
+.card--education {
+
+  .school {
+    margin-bottom: 50px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .school__header {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed $light-grey;
+    }
+
+    .header__left {
+      margin-right: 15px;
+      text-align: left;
+    }
+
+    .header__right {
+      margin-left: 15px;
+      text-align: right;
+    }
+
+    .school__institute {
+      color: $blue;
+    }
+
+    &:last-of-type {
+
+      .school__content {
+        width: 50%;
+      }
+
+      .course {
+        display: flex;
+        justify-content: space-between;
+      }
+
+    }
+
+  }
+
+}

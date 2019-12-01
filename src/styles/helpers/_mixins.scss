@@ -1,0 +1,17 @@
+/**
+ * Mixins
+ */
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/**
+ * Transitions
+ */
+@mixin transition($property, $duration: 500ms, $timing-function: ease ) {
+  transition: $property $duration $timing-function;
+}

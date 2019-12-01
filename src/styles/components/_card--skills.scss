@@ -1,0 +1,54 @@
+/**
+ * Card skills
+ */
+.card--skills {
+
+  .skills--professional {
+    margin-bottom: 40px;
+  }
+
+  .skills__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid $blue;
+    border-radius: 2px 2px 0 0;
+
+    i {
+      color: $blue;
+    }
+
+  }
+
+  .skills__list {
+    margin: 0;
+    padding: 15px;
+    border: 1px solid $light-grey;
+    border-top: none;
+
+    .skills__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: none;
+      }
+    }
+
+    .skills__icon {
+      width: 30px;
+      margin-right: 10px;
+      font-size: 1.5em;
+      color: $light-grey;
+    }
+
+  }
+
+}
