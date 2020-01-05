@@ -1,24 +1,4 @@
 /**
- * Base layout
- */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.resume {
-  width: 100%;
-
-  .resume__hero {
-    width: 100%;
-    height: 100vh;
-  }
-
-}
-
-/**
  * Grid layout
  */
 .grid {

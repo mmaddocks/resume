@@ -15,12 +15,13 @@
     border-bottom: 1px solid $light-grey;
     text-transform: capitalize;
 
-    i, h2 {
+    h2 {
       font-size: $card-heading-size;
     }
 
     .card__icon {
-      width: 32px;
+      width: auto;
+      height: 30px;
       margin-right: 20px;
       color: $light-grey;
     }
