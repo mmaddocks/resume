@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="['card', 'card--' + title]">
+  <div v-bind:id="[title]" v-bind:class="['card', 'card--' + title]">
     <header class="card__header">
       <svg
         class="card__icon"
@@ -109,6 +109,7 @@ export default {
     width: 150px;
     display: inline-block;
     margin: 40px 0;
+    border-radius: 2px;
     font-weight: 300;
     text-decoration: none;
   }

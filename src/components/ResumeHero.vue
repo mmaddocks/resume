@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="hasAnimated" class="resume__hero">
+    <div v-if="resumeHero.isShowing" class="resume__hero">
       <a class="logo" href="/">
         <svg
           version="1.1"
@@ -47,56 +47,94 @@
       </a>
 
       <div class="search">
-        <vue-typed-js :strings="[title]" :startDelay="1000">
-          <h1 class="search__title typing"></h1>
-        </vue-typed-js>
-
-        <font-awesome-icon class="search__icon" icon="search" />
-      </div>
-
-      <div class="dropdown">
-        <div class="dropdown__item">
-          <vue-typed-js
-            :strings="[interests[0], interests[1], interests[2], keywords[0]]"
-            :startDelay="1000"
-            @onComplete="showNextText()"
-          >
-            <h2 class="typing"></h2>
+        <div class="primary">
+          <vue-typed-js :strings="[title]" :startDelay="1500">
+            <h1 class="primary__title typing"></h1>
           </vue-typed-js>
+
+          <font-awesome-icon class="search__icon" icon="search" />
         </div>
 
-        <div v-if="isShowing" class="dropdown__item">
-          <vue-typed-js :strings="[keywords[1]]">
-            <h2 class="typing"></h2>
-          </vue-typed-js>
-        </div>
-      </div>
-      <!-- .dropdown -->
+        <div class="dropdown">
+          <div class="dropdown__item">
+            <vue-typed-js
+              :strings="[interests[0], interests[1], interests[2], keywords[0]]"
+              :startDelay="1500"
+              @onComplete="showNextDropdown()"
+            >
+              <h2 class="typing"></h2>
+            </vue-typed-js>
+          </div>
+
+          <div v-if="dropdownItem.isShowing" class="dropdown__item">
+            <vue-typed-js :strings="[keywords[1]]" @onComplete="showScroll(hideCursor)">
+              <h2 class="typing"></h2>
+            </vue-typed-js>
+          </div>
+        </div><!-- .dropdown -->
+      </div><!-- .search -->
+
+      <transition name="fade-down">
+        <scroll-link v-if="scrollLink.isShowing" href="#about" class="scroll-link" style="transition-delay: 500ms">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            <path fill="none" d="M0 0h24v24H0V0z"/>
+          </svg>
+        </scroll-link>
+      </transition>
+
     </div>
   </transition>
 </template>
 
 <script>
+import ScrollLink from "./ScrollLink";
+
 export default {
   name: "ResumeHero",
+  components: {
+    ScrollLink
+  },
   data() {
     return {
       title: "Mark ^1000 Maddocks",
       interests: ["Surfer", "Skier", "Climber"],
       keywords: ["Front-end Web Developer", "Web Designer"],
-      isShowing: false,
-      hasAnimated: false
+      resumeHero: {
+        isShowing: false
+      },
+      dropdownItem: {
+        isShowing: false
+      },
+      scrollLink: {
+        isShowing: false
+      }
     };
   },
   mounted: function() {
     this.fadeIn();
   },
   methods: {
-    showNextText() {
-      this.isShowing = true;
-    },
     fadeIn() {
-      this.hasAnimated = true;
+      this.resumeHero.isShowing = true;
+    },
+    showNextDropdown() {
+      this.dropdownItem.isShowing = true;
+    },
+    showScroll(callback) {
+      this.scrollLink.isShowing = true;
+      callback();
+    },
+    hideCursor() {
+      var divsToHide = document.querySelectorAll(".typed-cursor");
+      // for (var i = 0; i < divsToHide.length; i++) {
+      //   divsToHide[i].style.visibility = "hidden";
+      // }
+      for (let i = 0; i < divsToHide.length; i++) {
+        setTimeout(function() {
+          divsToHide[i].style.visibility = "hidden";
+        }, 2000);
+      }
     }
   }
 };
@@ -108,9 +146,7 @@ export default {
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 
   .logo {
     width: 40px;
@@ -128,51 +164,72 @@ export default {
   .search {
     width: 90%;
     max-width: 375px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    background-color: #fff;
-    border: 1px solid $light-grey;
-    border-radius: 2px 2px 0 0;
-    min-height: 70px;
-    @include transition(all);
+    margin: 0 auto;
+    margin-top: 25vh;
 
-    &:hover {
-      border-color: $blue;
-    }
-
-    .search__title {
-      margin: 0;
-    }
-
-    .typed-cursor {
-      font-size: 2em;
-    }
-
-    .search__icon {
-      width: 20px;
-      height: auto;
-      color: $blue;
-    }
-  }
-
-  .dropdown {
-    width: 90%;
-    max-width: 375px;
-    border: 1px solid $light-grey;
-    border-top: none;
-
-    .dropdown__item {
+    .primary {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 10px 15px;
+      background-color: #fff;
+      border: 1px solid $light-grey;
+      border-radius: 2px 2px 0 0;
+      min-height: 70px;
+      @include transition(all);
 
-      &:nth-of-type(2) {
-        margin-top: -15px;
+      &:hover {
+        border-color: $blue;
+      }
+
+      .primary__title {
+        margin: 0;
+      }
+
+      .typed-cursor {
+        font-size: 2em;
+      }
+
+      .search__icon {
+        width: 20px;
+        height: auto;
+        color: $blue;
       }
     }
 
-    .typed-cursor {
-      font-size: 1.5em;
+    .dropdown {
+      width: 100%;
+      border: 1px solid $light-grey;
+      border-top: none;
+
+      .dropdown__item {
+        padding: 10px 15px;
+
+        &:nth-of-type(2) {
+          margin-top: -15px;
+        }
+      }
+
+      .typed-cursor {
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  .scroll-link {
+    width: 40px;
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: $blue;
+    @include transition(all);
+
+    &:hover {
+      transform: translateY(20%);
     }
   }
 }
@@ -187,4 +244,17 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+
+//Fade up animation for arrow
+.fade-down-enter-active,
+.fade-down-leave-active {
+  transition: all 1s ease-out;
+}
+
+.fade-down-enter,
+.fade-down-leave-to {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 </style>

@@ -1,8 +1,6 @@
 <template>
   <div id="app" class="resume">
-    <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <ResumeHero />
-
     <div class="grid">
       <div class="grid__item">
         <ResumeAbout />
@@ -20,6 +18,13 @@
         <ResumeInterests />
       </div>
     </div>
+
+    <footer>
+      <scroll-link href="#app" class="scroll-link">
+        <span class="rocket">&#x1F680;</span>
+        <span>Back to the top</span>
+      </scroll-link>
+    </footer>
   </div>
 </template>
 
@@ -30,6 +35,7 @@ import ResumeExperience from "./components/ResumeExperience.vue";
 import ResumeSkills from "./components/ResumeSkills.vue";
 import ResumeEducation from "./components/ResumeEducation.vue";
 import ResumeInterests from "./components/ResumeInterests.vue";
+import ScrollLink from "./components/ScrollLink";
 
 export default {
   name: "app",
@@ -39,7 +45,8 @@ export default {
     ResumeExperience,
     ResumeSkills,
     ResumeEducation,
-    ResumeInterests
+    ResumeInterests,
+    ScrollLink
   }
 };
 </script>
@@ -58,15 +65,42 @@ html {
 svg {
   width: 100%;
   height: auto;
-}
-
-#app {
-  // font-family: "Avenir", Helvetica, Arial, sans-serif;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
+  display: block;
 }
 
 .resume {
   width: 100%;
+
+  footer {
+    width: 100%;
+    max-width: 1100px;
+    margin: 100px auto 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+
+    .scroll-link {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: $mid-grey;
+      @include transition(all);
+
+      .rocket {
+        font-size: 4em;
+        transform: rotate(-45deg) translateX(20px);
+        @include transition(all);
+      }
+
+      &:hover {
+        color: $blue;
+
+        .rocket {
+          transform: rotate(-45deg) translate(35px, -15px);
+        }
+      }
+    }
+  }
 }
 </style>
