@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <footer>
+    <footer class="resume__footer">
       <scroll-link href="#app" class="scroll-link">
         <span class="rocket">&#x1F680;</span>
         <span>Back to the top</span>
@@ -71,7 +71,7 @@ svg {
 .resume {
   width: 100%;
 
-  footer {
+  .resume__footer {
     width: 100%;
     max-width: 1100px;
     margin: 100px auto 40px auto;
