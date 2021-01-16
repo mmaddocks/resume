@@ -57,7 +57,12 @@ export default {
             {
               icon: "js-square",
               iconGroup: "fab",
-              name: "JavaScript & jQuery"
+              name: "JavaScript"
+            },
+            {
+              icon: "react",
+              iconGroup: "fab",
+              name: "React & React Native"
             },
             {
               icon: "php",
@@ -68,6 +73,11 @@ export default {
               icon: "wordpress",
               iconGroup: "fab",
               name: "Wordpress"
+            },
+            {
+              icon: "drupal",
+              iconGroup: "fab",
+              name: "Drupal"
             },
             {
               icon: "git",
@@ -88,6 +98,16 @@ export default {
               icon: "figma",
               iconGroup: "fab",
               name: "Figma"
+            },
+            {
+              icon: "paint-brush",
+              iconGroup: "fas",
+              name: "Affinity products"
+            },
+            {
+              icon: "atlassian",
+              iconGroup: "fab",
+              name: "JIRA Software"
             }
           ]
         },

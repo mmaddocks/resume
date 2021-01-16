@@ -13,8 +13,10 @@
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/vue-fontawesome": "^0.1.8",
+    "aos": "^3.0.0-beta.6",
     "core-js": "^3.4.3",
     "normalize.css": "^8.0.1",
+    "smoothscroll-polyfill": "^0.4.4",
     "vue": "^2.6.10",
     "vue-typed-js": "^0.1.2"
   },

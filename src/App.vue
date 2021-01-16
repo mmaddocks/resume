@@ -2,24 +2,24 @@
   <div id="app" class="resume">
     <ResumeHero />
     <div class="grid">
-      <div class="grid__item">
+      <div class="grid__item" data-aos="fade-up">
         <ResumeAbout />
       </div>
-      <div class="grid__item">
+      <div class="grid__item" data-aos="fade-up">
         <ResumeExperience />
       </div>
-      <div class="grid__item">
+      <div class="grid__item" data-aos="fade-up">
         <ResumeSkills />
       </div>
-      <div class="grid__item">
+      <div class="grid__item" data-aos="fade-up">
         <ResumeEducation />
       </div>
-      <div class="grid__item">
+      <div class="grid__item" data-aos="fade-up">
         <ResumeInterests />
       </div>
     </div>
 
-    <footer class="resume__footer">
+    <footer class="resume__footer" data-aos="fade-up">
       <scroll-link href="#app" class="scroll-link">
         <span class="rocket">&#x1F680;</span>
         <span>Back to the top</span>
@@ -52,6 +52,13 @@ export default {
 </script>
 
 <style lang="scss">
+html,
+body,
+.resume {
+  /* mobile viewport bug fix */
+  // height: -webkit-fill-available;
+}
+
 html {
   box-sizing: border-box;
 }

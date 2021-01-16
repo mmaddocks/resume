@@ -1,6 +1,13 @@
 <template>
   <transition name="fade">
-    <div v-if="resumeHero.isShowing" class="resume__hero">
+    <div
+      v-if="resumeHero.isShowing"
+      class="resume__hero"
+      data-aos="fade-out"
+      data-aos-anchor-placement="top-center"
+      data-aos-offset="500"
+      data-aos-duration="1000"
+    >
       <a class="logo" href="/">
         <svg
           version="1.1"
@@ -85,19 +92,10 @@
           href="#about"
           class="scroll-link"
           style="transition-delay: 500ms"
+          @clicked="handleClick"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-            />
-            <path fill="none" d="M0 0h24v24H0V0z" />
-          </svg>
+          <div class="icon-scroll"></div>
+          <span>Learn more</span>
         </scroll-link>
       </transition>
     </div>
@@ -116,7 +114,7 @@ export default {
     return {
       title: "Mark ^1000 Maddocks",
       interests: ["Surfer", "Skier", "Climber"],
-      keywords: ["Front-end Web Developer", "Web Designer"],
+      keywords: ["Frontend Web Developer", "UX Designer"],
       resumeHero: {
         isShowing: false
       },
@@ -152,6 +150,9 @@ export default {
           divsToHide[i].style.visibility = "hidden";
         }, 2000);
       }
+    },
+    handleClick() {
+      document.querySelector(".grid__item").removeAttribute("data-aos");
     }
   }
 };
@@ -161,9 +162,13 @@ export default {
 <style lang="scss">
 .resume__hero {
   width: 100%;
-  height: 100vh;
   display: flex;
+  display: -webkit-box; /* needed to fix layout on chrome (due to min-height) */
   position: relative;
+  min-height: 100vh;
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+  pointer-events: all; // overide AOS
 
   .logo {
     width: 40px;
@@ -226,6 +231,10 @@ export default {
         &:nth-of-type(2) {
           margin-top: -15px;
         }
+
+        h2 {
+          color: $mid-grey;
+        }
       }
 
       .typed-cursor {
@@ -235,18 +244,64 @@ export default {
   }
 
   .scroll-link {
-    width: 40px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     bottom: 20px;
     left: 0;
     right: 0;
     margin: 0 auto;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.044em;
+    font-size: 0.875em;
     color: $blue;
     @include transition(all);
 
     &:hover {
       transform: translateY(20%);
+    }
+
+    span {
+      margin-bottom: 10px;
+    }
+
+    svg {
+      width: 20px;
+    }
+
+    .icon-scroll {
+      width: 30px;
+      height: 52.5px;
+      box-shadow: inset 0 0 0 1px $blue;
+      border-radius: 18.75px;
+      margin-bottom: 10px;
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        left: 50%;
+        background: $blue;
+        margin-left: -3px;
+        top: 6px;
+        border-radius: 3px;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-name: scroll;
+      }
+
+      @keyframes scroll {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(34.5px);
+        }
+      }
     }
   }
 }
@@ -272,5 +327,15 @@ export default {
 .fade-down-leave-to {
   opacity: 0;
   transform: translateY(-100%);
+}
+
+// Custom AOS animation to animate out content
+// [data-aos="fade-out"] {
+html:not(.no-js) [data-aos^="fade"][data-aos="fade-out"] {
+  opacity: 1;
+  transition-property: opacity;
+  &.aos-animate {
+    opacity: 0;
+  }
 }
 </style>

@@ -1,23 +1,25 @@
 /**
  * Typography
  */
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap');
 
 $font: "Roboto", sans-serif;
-$font-weight: 100;
+$font-weight: 300;
 $card-heading-size: 2em;
 
 body {
   font-family: $font;
   font-weight: $font-weight;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: $body-font-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 300;
-  color: $mid-grey;
+  color: $body-font-color;
 }
 
 /**
@@ -29,6 +31,7 @@ ul {
 
 ul li {
   position: relative;
+  margin-bottom: 10px;
 }
 
 ul li::before {
@@ -36,4 +39,9 @@ ul li::before {
   display: inline-block;
   position: absolute;
   left: -20px;
+}
+
+// Default link
+a {
+  color: $blue;
 }

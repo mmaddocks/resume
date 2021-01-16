@@ -10,7 +10,17 @@ export default {
   props: ["href"],
   methods: {
     scroll() {
-      document.querySelector(this.href).scrollIntoView({ behavior: "smooth" });
+      // document.querySelector(this.href).scrollIntoView({ behavior: "smooth" });
+
+      // Emits event 'clicked'
+      this.$emit("clicked");
+
+      const element = document.querySelector(this.href);
+      const yOffset = -30;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
   }
 };

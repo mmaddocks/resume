@@ -36,7 +36,7 @@ export default {
           date: "2015 - 2017",
           location: "Sydney, Australia",
           content: [
-            "<p>Comprehensive grounding in the complete development cycle, from wire-framing and UX designs through to development, testing and deployment.</p>"
+            "<p>Comprehensive grounding in the complete development cycle, from user stories and UX wireframes through to development, testing and deployment of websites.</p>"
           ].join("")
         },
         {
@@ -51,7 +51,7 @@ export default {
         {
           certificate: "A-Levels",
           institute: "Churchill Academy",
-          date: "2005 - 207",
+          date: "2005 - 2007",
           location: "Bristol, UK",
           content: [
             '<p class="course">Business <span>A</span></p>',
@@ -79,6 +79,11 @@ export default {
       justify-content: space-between;
       padding-bottom: 10px;
       border-bottom: 1px dashed $light-grey;
+
+      .school__certificate {
+        font-weight: 400;
+        color: $mid-grey;
+      }
     }
 
     .header__left {

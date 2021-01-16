@@ -32,30 +32,37 @@ export default {
       jobs: [
         {
           company: "Companyapp | BREAD Creative",
-          role: "Front-end Web Developer & Web Designer",
+          role: "Frontend Web Developer & UX Designer",
           date: "2017 - present",
           location: "London, UK",
           content: [
-            "<p>Part of the team responsible for building, designing and maintaining Companyapp Presenter - a browser based and mobile/tablet presentation product. Agency side - designing and building client websites.</p>",
+            "<p>Companyapp - Part of the team responsible for building, designing and maintaining Communicator (a white-label mobile communications app) & Presenter (a browser based presentation product). BREAD Creative - designing and building client websites (agency side of the business).</p>",
             '<h5 class="content__heading">Design</h5>',
             "<ul>",
-            "<li>Revamped UI elements of Companyapp Presenter system and mobile/ tablet app.</li>",
-            "<li>UX wireframes and layout design for 5 client websites - including asset and logo design.</li>",
-            "<li>Designed 12+ presentation themes and assets for use in Presenter system.</li>",
-            "<li>Designing presentation layouts to work in two key views (16:9 and 4:3 aspect ratios) with no vertical scroll.</li>",
+            "<li>Lead the design of <a href='https://companyapp.co.uk/communicator' target='_blank'>Communicator</a> (a white-label communications app) from UX wireframes through to high-fidelity mockups - utilising Figma for design and collaboration.</li>",
+            "<li>Lead the redesign of the <a href='https://companyapp.co.uk' target='_blank'>Companyapp</a> website.</li>",
+            "<li>Redesigned UI elements of the <a href='https://companyapp.co.uk/presenter' target='_blank'>Presenter</a> product and tablet app.</li>",
+            "<li>UX wireframes and layout design for 5 client websites - including theme/branding, asset and logo design.</li>",
+            "<li>Designed 15+ presentation themes and assets for use in Presenter.</li>",
+            "<li>Designing presentation layouts to work in two fixed aspect ratios (16:9 and 4:3) with no vertical scroll.</li>",
             "</ul>",
             '<h5 class="content__heading">Development</h5>',
             "<ul>",
-            "<li>Built 3 mobile-first client websites, deployed on Wordpress and fully browser tested to be compatible with IE11 upwards.</li>",
-            "<li>Redesigned and built Presenter templates to run on Drupal CMS.</li>",
+            "<li>Lead the design build of <a href='https://companyapp.co.uk/communicator' target='_blank'>Communicator</a> - built with React Native. Key design considerations included the handling of many screen resolutions, supporting landscape orientation and iOS/Android UI differences.</li>",
+            "<li>Lead the design build of Communicator web app (PWA) - built in React.</li>",
+            "<li>Lead the design build of the <a href='https://companyapp.co.uk' target='_blank'>Companyapp</a> website.</li>",
+            "<li>Built 3 mobile-first client websites, deployed on Wordpress and browser tested to be compatible with IE11 upwards.</li>",
             "<li>Built 50+ custom client presentations - utilising CSS and JavaScript animations for interactive, dynamic slides and presentations.</li>",
+            "<li>Designed and built <a href='https://companyapp.co.uk/presenter' target='_blank'>Presenter</a> templates to operate on Drupal CMS.</li>",
             "</ul>",
             '<h5 class="content__heading">Support & Collaboration</h5>',
             "<ul>",
-            "<li>Responsible for managing a Contract Graphic Designer and Junior Front-end Developer.</li>",
+            "<li>Responsible for managing a contract Graphic Designer and Junior Frontend Developer.</li>",
             "<li>Attending client meetings to scope out project and build relationships.</li>",
-            "<li>Training clients on the use of Companyapp Presenter and Wordpress CMS for client sites.</li>",
-            "<li>Responding to support tickets and testing / QA for all presentations and client websites.</li>",
+            "<li>Training clients on the use and administration of Communicator, Presenter and Wordpress CMS (for client websites).</li>",
+            "<li>Responding to customer support tickets</li>",
+            "<li>Testing / QA for all products, presentations and client websites.</li>",
+            "<li>Responsible for managing the administration of projects on JIRA.</li>",
             "</ul>"
           ].join("")
         },
@@ -111,6 +118,11 @@ export default {
       justify-content: space-between;
       padding-bottom: 10px;
       border-bottom: 1px dashed $light-grey;
+
+      .job__role {
+        font-weight: 400;
+        color: $mid-grey;
+      }
     }
 
     .header__left {
@@ -130,6 +142,9 @@ export default {
     .content__heading {
       font-size: 1em;
       text-transform: uppercase;
+      color: $body-font-color;
+      font-weight: 400;
+      color: $mid-grey;
     }
   }
 }

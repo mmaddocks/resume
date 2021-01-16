@@ -75,13 +75,13 @@ export default {
     return {
       title: "about",
       content: [
-        "<p>A creative thinking, detail oriented and self-motivated Front-end Web Developer and Designer.</p>",
-        "<p>Armed with an array of technical and personal skills to compliment a progressive development team. Passionate about creating engaging ‘mobile first’ visual communication, to deliver exceptional user experiences.</p>"
+        "<p>A creative thinking, detail oriented and self-motivated Frontend Web Developer and UX Designer.</p>",
+        "<p>Armed with an array of technical and personal skills to compliment a progressive development team. Passionate about creating engaging ‘mobile-first’ visual communication, to deliver exceptional user experiences.</p>"
       ].join(""),
       socials: [
         {
           icon: "linkedin-in",
-          link: "https://uk.linkedin.com/in/markmaddocks1"
+          link: "https://www.linkedin.com/in/markmaddocks1"
         },
         {
           icon: "twitter",
