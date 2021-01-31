@@ -163,12 +163,17 @@ export default {
 .resume__hero {
   width: 100%;
   display: flex;
-  display: -webkit-box; /* needed to fix layout on chrome (due to min-height) */
   position: relative;
   min-height: 100vh;
-  /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
   pointer-events: all; // overide AOS
+
+  /* Safari 10.1+ */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      /* mobile viewport bug fix for mobile safari */
+      min-height: -webkit-fill-available;
+    }
+  }
 
   .logo {
     width: 40px;
