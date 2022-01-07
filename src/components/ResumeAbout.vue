@@ -49,9 +49,15 @@
 
     <div class="card__content">
       <div class="text" v-html="content"></div>
-      <a class="card__btn  btn" href="mailto:hello@mmaddocks.com" role="button"
-        >Email me</a
+      <a
+        class="card__btn  btn"
+        href="mailto:mark.maddocks@icloud.com"
+        role="button"
+        target="_blank"
+        rel="noreferrer"
       >
+        Email me
+      </a>
       <footer class="card__footer">
         <a
           v-bind:class="['social__icon', social.icon]"
